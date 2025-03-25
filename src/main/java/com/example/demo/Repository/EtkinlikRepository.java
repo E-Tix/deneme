@@ -16,7 +16,7 @@ public interface EtkinlikRepository extends JpaRepository<EtkinlikEntity,Long> {
 
     Optional<EtkinlikEntity> findByEtkinlikId(Long id);
 
-    Optional<EtkinlikEntity> findByOrganitazor(OrganizatorEntity organizator);
+    Optional<EtkinlikEntity> findByOrganizator(OrganizatorEntity organizator);
 
     Optional<EtkinlikEntity> findByEtkinlikTur(EtkinlikTurEntity etkinlikTur);
 
