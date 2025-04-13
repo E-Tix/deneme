@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface SeansRepository extends JpaRepository<SeansEntity, Long> {
 
-    Optional<SeansEntity> findBySeansID(Long seansID);
+    SeansEntity findBySeansID(Long seansID);
     Optional<SeansEntity> findByTarih(Timestamp tarih);
     Optional<SeansEntity> findByTarihiGectiMi(Boolean tarihiGectiMi);
 

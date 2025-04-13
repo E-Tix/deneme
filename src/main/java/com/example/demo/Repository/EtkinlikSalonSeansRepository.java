@@ -13,7 +13,7 @@ public interface EtkinlikSalonSeansRepository extends JpaRepository<EtkinlikSalo
 
     @Query("""
     SELECT DISTINCT ess.salon FROM EtkinlikSalonSeansEntity ess
-    WHERE ess.etkinlik.etkinlikId = :etkinlikId
+    WHERE ess.etkinlik.etkinlikID = :etkinlikId
     """)
     List<SalonEntity> findSalonlarByEtkinlik(@Param("etkinlikId") Long etkinlikId);
 
@@ -26,7 +26,7 @@ public interface EtkinlikSalonSeansRepository extends JpaRepository<EtkinlikSalo
 
     @Query("""
     SELECT es.salon, es.seans FROM EtkinlikSalonSeansEntity es
-    WHERE es.etkinlik.etkinlikId = :etkinlikId
+    WHERE es.etkinlik.etkinlikID= :etkinlikId
 """)
     List<Object[]> findSalonlarVeSeanslarByEtkinlik(@Param("etkinlikId") Long etkinlikId);
 

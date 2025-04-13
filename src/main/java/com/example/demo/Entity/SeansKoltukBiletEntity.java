@@ -24,6 +24,13 @@ public class SeansKoltukBiletEntity {
     @Column(name = "koltukDurumu")
     private String koltukdurumu;
 
+    public SeansKoltukBiletEntity(SeansEntity seans, KoltukEntity koltuk, BiletEntity bilet, String koltukdurumu) {
+        this.seans = seans;
+        this.koltuk = koltuk;
+        this.bilet = bilet;
+        this.koltukdurumu = koltukdurumu;
+    }
+
     public SeansKoltukBiletEntity(Long seansKoltukBiletID, SeansEntity seans, KoltukEntity koltuk, BiletEntity bilet, String koltukdurumu) {
         this.seansKoltukBiletID = seansKoltukBiletID;
         this.seans = seans;

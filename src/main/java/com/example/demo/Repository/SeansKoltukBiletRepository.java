@@ -27,11 +27,11 @@ public interface SeansKoltukBiletRepository extends JpaRepository<SeansKoltukBil
     """)
     List<SeansEntity> findSeanslarBySalon(@Param("salonId") Long salonId);
 
-    @Query("""
+    /*@Query("""
         SELECT skb.koltuk FROM SeansKoltukBiletEntity skb
         WHERE skb.seans.seansID = :seandsId
     """)
-    List<SeansEntity> findKoltukBySeanslar(@Param("seandsId") Long seansId);
+    List<SeansEntity> findKoltukBySeanslar(@Param("seandsId") Long seansId);*/
 
     @Query("""
         SELECT skb.koltuk FROM SeansKoltukBiletEntity skb

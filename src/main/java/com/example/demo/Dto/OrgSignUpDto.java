@@ -1,41 +1,16 @@
-package com.example.demo.Entity;
+package com.example.demo.Dto;
 
-import jakarta.persistence.*;
-import org.w3c.dom.Text;
-
-@Entity
-@Table(name = "Organizator")
-public class OrganizatorEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long organizatorID;
-
-    @Column(name = "adSoyad",nullable = false)
+public class OrgSignUpDto {
     private String adSoyad;
-
-    @Column(name = "vergiNo",nullable = false)
     private String vergiNo;
-
-    @Column(name = "email",nullable = false)
     private String email;
-
-    @Column(name = "sifre",nullable = false)
     private String sifre;
-
-    @Column(name = "iban",nullable = false)
     private String iban;
-
-    @Column(name = "sirketAdresi",nullable = false)
     private String sirketAdresi;
-
-    @Column(name = "tckNo",nullable = false)
     private String tckNo;
-
-    @Column(name = "telefonNumarasi",nullable = false)
     private String telefonNumarasi;
 
-    public OrganizatorEntity(Long organizatorID, String adSoyad, String vergiNo, String email, String sifre, String iban, String sirketAdresi, String tckNo, String telefonNumarasi) {
-        this.organizatorID = organizatorID;
+    public OrgSignUpDto(String adSoyad, String vergiNo, String email, String sifre, String iban, String sirketAdresi, String tckNo, String telefonNumarasi) {
         this.adSoyad = adSoyad;
         this.vergiNo = vergiNo;
         this.email = email;
@@ -46,26 +21,7 @@ public class OrganizatorEntity {
         this.telefonNumarasi = telefonNumarasi;
     }
 
-    public OrganizatorEntity(String adSoyad, String vergiNo, String email, String sifre, String iban, String sirketAdresi, String tckNo, String telefonNumarasi) {
-        this.adSoyad = adSoyad;
-        this.vergiNo = vergiNo;
-        this.email = email;
-        this.sifre = sifre;
-        this.iban = iban;
-        this.sirketAdresi = sirketAdresi;
-        this.tckNo = tckNo;
-        this.telefonNumarasi = telefonNumarasi;
-    }
-
-    public OrganizatorEntity(){}
-
-    public Long getOrganizatorID() {
-        return organizatorID;
-    }
-
-    public void setOrganizatorID(Long organizatorID) {
-        this.organizatorID = organizatorID;
-    }
+    public OrgSignUpDto(){}
 
     public String getAdSoyad() {
         return adSoyad;

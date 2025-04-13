@@ -12,7 +12,7 @@ public class EtkinlikEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long etkinlikId;
+    private Long etkinlikID;
 //tamam
     @OneToMany(mappedBy = "etkinlik")
     private List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList;
@@ -52,7 +52,7 @@ public class EtkinlikEntity {
     private float biletFiyati;
 
     public EtkinlikEntity(Long etkinlikID, OrganizatorEntity organizator, EtkinlikTurEntity etkinlikTur, SehirEntity sehir, String etkinlikAdi, String kapakFotografi, String etkinlikAciklamasi, int yasSiniri, Timestamp etkinlikSuresi, Timestamp olusturulmaTarihi, boolean tarihiGectiMi, float biletFiyati) {
-        this.etkinlikId = etkinlikID;
+        this.etkinlikID = etkinlikID;
         this.organizator = organizator;
         this.etkinlikTur = etkinlikTur;
         this.sehir = sehir;
@@ -69,11 +69,11 @@ public class EtkinlikEntity {
     public EtkinlikEntity(){}
 
     public Long getEtkinlikID() {
-        return etkinlikId;
+        return etkinlikID;
     }
 
     public void setEtkinlikID(Long etkinlikID) {
-        this.etkinlikId = etkinlikID;
+        this.etkinlikID = etkinlikID;
     }
 
     public OrganizatorEntity getOrganizator() {

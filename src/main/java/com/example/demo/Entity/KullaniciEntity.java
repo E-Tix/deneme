@@ -45,6 +45,14 @@ public class KullaniciEntity {
     public KullaniciEntity() {
     }
 
+    public KullaniciEntity(String kullaniciAdi, String adSoyad, String sifre, String email, String telNo) {
+        this.kullaniciAdi = kullaniciAdi;
+        this.adSoyad = adSoyad;
+        this.sifre = sifre;
+        this.email = email;
+        this.telNo = telNo;
+    }
+
     public Long getKullaniciID() {
         return kullaniciID;
     }

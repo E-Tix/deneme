@@ -14,11 +14,13 @@ import java.util.Optional;
 @Repository
 public interface EtkinlikRepository extends JpaRepository<EtkinlikEntity,Long> {
 
-    Optional<EtkinlikEntity> findByEtkinlikId(Long id);
+    Optional<EtkinlikEntity> findByEtkinlikID(Long id);
 
-    Optional<EtkinlikEntity> findByOrganizator(OrganizatorEntity organizator);
+    List<EtkinlikEntity> findByOrganizator(OrganizatorEntity organizator);
 
-    Optional<EtkinlikEntity> findByEtkinlikTur(EtkinlikTurEntity etkinlikTur);
+    List<EtkinlikEntity> findBySehirAndEtkinlikTur(SehirEntity sehir,EtkinlikTurEntity etkinlikTur);
+
+    List<EtkinlikEntity> findByEtkinlikTur(EtkinlikTurEntity etkinlikTur);
 
     Optional<EtkinlikEntity> findByTarihiGectiMi(boolean tarihiGectiMi);
 

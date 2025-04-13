@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface EtkinlikTurRepository extends JpaRepository<EtkinlikTurEntity,Long> {
 
     Optional<EtkinlikTurEntity> findByEtkinlikTurID(Long etkinlikTurId);
+    EtkinlikTurEntity findByEtkinlikTurAdi(String etkinlikTurAdi);
 
 }

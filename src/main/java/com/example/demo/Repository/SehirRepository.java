@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface SehirRepository extends JpaRepository<SehirEntity,Long> {
 
     Optional<SehirEntity> findByPlakaKodu(Long plakaKodu);
+    SehirEntity findBySehirAdi(String sehirAdi);
 
 }

@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface KoltukRepository extends JpaRepository<KoltukEntity, Long> {
 
-    Optional<KoltukEntity> findByKoltukID(Long koltukID);
+    KoltukEntity findByKoltukID(Long koltukID);
 
     //Optional<Koltuk> findBySalon_SalonID(Long salonID);
 

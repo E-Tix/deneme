@@ -22,6 +22,11 @@ public class KullaniciBiletEntity {
         this.bilet = bilet;
     }
 
+    public KullaniciBiletEntity(KullaniciEntity kullanici, BiletEntity bilet) {
+        this.kullanici = kullanici;
+        this.bilet = bilet;
+    }
+
     public KullaniciBiletEntity(){}
 
     public Long getKullaniciBiletID() {

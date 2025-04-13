@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface OrganizatorRepository extends JpaRepository<OrganizatorEntity,Long> {
-
+    OrganizatorEntity findByEmailAndSifre(String email,String sifre);
     Optional<OrganizatorEntity> findByOrganizatorID(Long organizatorID);
     Optional<OrganizatorEntity> findByAdSoyad(String adSoyad);
     Optional<OrganizatorEntity> findByEmail(String email);

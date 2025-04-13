@@ -33,6 +33,12 @@ public class BiletEntity {
         this.olusturmaZamani = olusturmaZamani;
     }
 
+    public BiletEntity(Boolean odendiMi,Float odenenMiktar)
+    {
+        this.odendiMi=odendiMi;
+        this.odenenMiktar=odenenMiktar;
+    }
+
     public BiletEntity()
     {
         //abcde
