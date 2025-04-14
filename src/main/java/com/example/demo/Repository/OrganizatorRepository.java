@@ -10,7 +10,7 @@ public interface OrganizatorRepository extends JpaRepository<OrganizatorEntity,L
     OrganizatorEntity findByEmailAndSifre(String email,String sifre);
     Optional<OrganizatorEntity> findByOrganizatorID(Long organizatorID);
     Optional<OrganizatorEntity> findByAdSoyad(String adSoyad);
-    Optional<OrganizatorEntity> findByEmail(String email);
+    OrganizatorEntity findByEmail(String email);//tek bir org döndürmesi lazım
     Optional<OrganizatorEntity> findBySifre(String sifre);
 
 }

@@ -2,8 +2,8 @@ package com.example.demo.Entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Fetch;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.repository.cdi.Eager;
-import org.springframework.data.util.Lazy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,15 +20,15 @@ public class KullaniciEntity {
     @OneToMany(mappedBy = "kullanici")
     private List<KullaniciBiletEntity> kullaniciBiletEntityList;
 
-    @Column(name = "kullaniciAdi",nullable = false)
+    @Column(name = "kullaniciAdi",nullable = false,unique = true)
     private String kullaniciAdi;
     @Column(name = "adSoyad",nullable = false)
     private String adSoyad;
     @Column(name = "sifre",nullable = false)
     private String sifre;
-    @Column(name = "email",nullable = false)
+    @Column(name = "email",nullable = false,unique = true)
     private String email;
-    @Column(name = "telNo",nullable = false)
+    @Column(name = "telNo",nullable = false,unique = true)
     private String telNo;
 
     public KullaniciEntity(Long kullaniciID, SehirEntity sehir, List<KullaniciBiletEntity> kullaniciBiletEntityList, String kullaniciAdi, String adSoyad, String sifre, String email, String telNo) {
@@ -45,6 +45,7 @@ public class KullaniciEntity {
     public KullaniciEntity() {
     }
 
+    //SignUpDto için
     public KullaniciEntity(String kullaniciAdi, String adSoyad, String sifre, String email, String telNo) {
         this.kullaniciAdi = kullaniciAdi;
         this.adSoyad = adSoyad;

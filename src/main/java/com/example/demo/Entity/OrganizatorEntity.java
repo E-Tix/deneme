@@ -1,7 +1,7 @@
 package com.example.demo.Entity;
 
 import jakarta.persistence.*;
-import org.w3c.dom.Text;
+
 
 @Entity
 @Table(name = "Organizator")
@@ -16,22 +16,22 @@ public class OrganizatorEntity {
     @Column(name = "vergiNo",nullable = false)
     private String vergiNo;
 
-    @Column(name = "email",nullable = false)
+    @Column(name = "email",nullable = false ,unique = true)
     private String email;
 
     @Column(name = "sifre",nullable = false)
     private String sifre;
 
-    @Column(name = "iban",nullable = false)
+    @Column(name = "iban",nullable = false ,unique = true)
     private String iban;
 
     @Column(name = "sirketAdresi",nullable = false)
     private String sirketAdresi;
 
-    @Column(name = "tckNo",nullable = false)
+    @Column(name = "tckNo",nullable = false ,unique = true)
     private String tckNo;
 
-    @Column(name = "telefonNumarasi",nullable = false)
+    @Column(name = "telefonNumarasi",nullable = false ,unique = true)
     private String telefonNumarasi;
 
     public OrganizatorEntity(Long organizatorID, String adSoyad, String vergiNo, String email, String sifre, String iban, String sirketAdresi, String tckNo, String telefonNumarasi) {

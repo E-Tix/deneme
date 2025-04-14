@@ -2,7 +2,6 @@ package com.example.demo.Controller;
 
 import com.example.demo.Entity.EtkinlikEntity;
 import com.example.demo.Service.LandingService;
-import jakarta.persistence.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +26,7 @@ public class LandingController {
             @RequestParam(required = false) String etkinlikTurAdi,
             @RequestParam(required = false) String sehirAdi
     ){
-        return landingService.getEtkinlik(etkinlikTurAdi,sehirAdi);
+        return landingService.getEtkinlik(etkinlikTurAdi,sehirAdi).subList(0,4);//ilk 5 etkinliği döndürür
     }
 
 }

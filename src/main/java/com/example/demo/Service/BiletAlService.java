@@ -32,6 +32,7 @@ public class BiletAlService {
     @Transactional
     public boolean biletAl(BiletAlDto biletAlDto){
 
+        //null kontrolü yap
         BiletEntity bilet = biletRepository.save(new BiletEntity(biletAlDto.isOdendiMi(),biletAlDto.getOdenenMiktar()));
         KullaniciEntity kullanici = kullaniciRepository.findByKullaniciID(biletAlDto.getKullaniciId());
 
