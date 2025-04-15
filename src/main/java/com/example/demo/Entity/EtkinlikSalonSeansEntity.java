@@ -18,7 +18,7 @@ public class EtkinlikSalonSeansEntity {
 
     @ManyToOne
     @JoinColumn(unique = true)
-    private  SeansEntity seans;
+    private SeansEntity seans;
 
 
     public EtkinlikSalonSeansEntity(Long etkinlikSalonSeansID, EtkinlikEntity etkinlik, SalonEntity salon, SeansEntity seans) {
@@ -27,7 +27,13 @@ public class EtkinlikSalonSeansEntity {
         this.salon = salon;
         this.seans = seans;
     }
-    
+
+    public EtkinlikSalonSeansEntity(EtkinlikEntity etkinlik, SalonEntity salon, SeansEntity seans) {
+        this.etkinlik = etkinlik;
+        this.salon = salon;
+        this.seans = seans;
+    }
+
     public EtkinlikSalonSeansEntity(){}
 
     public Long getEtkinlikSalonSeansID() {

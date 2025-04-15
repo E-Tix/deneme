@@ -1,6 +1,6 @@
 package com.example.demo.Service;
 
-import com.example.demo.Dto.ChangePasswordDto;
+import com.example.demo.Dto.Request.ChangePasswordDto;
 import com.example.demo.Dto.KullaniciProfiliDto;
 import com.example.demo.Entity.BiletEntity;
 import com.example.demo.Entity.KullaniciEntity;

@@ -1,4 +1,4 @@
-package com.example.demo.Dto;
+package com.example.demo.Dto.Request;
 
 public class ChangePasswordDto {
     private String eskiSifre;

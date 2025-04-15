@@ -1,17 +1,16 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Dto.KullaniciProfiliDto;
+import com.example.demo.Dto.Response.EtkinlikDetayDto;
 import com.example.demo.Entity.EtkinlikEntity;
 import com.example.demo.Service.LandingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/landing")
+@RequestMapping("/mainPage")
 public class LandingController {
     private LandingService landingService;
 
@@ -22,11 +21,17 @@ public class LandingController {
     }
 
     @GetMapping("/")
-    public List<EtkinlikEntity> getEtkinlik(
+    public List<EtkinlikEntity> getEtkinlikler(
             @RequestParam(required = false) String etkinlikTurAdi,
             @RequestParam(required = false) String sehirAdi
     ){
-        return landingService.getEtkinlik(etkinlikTurAdi,sehirAdi).subList(0,4);//ilk 5 etkinliği döndürür
+        return landingService.getEtkinlikler(etkinlikTurAdi,sehirAdi);
     }
 
+    @GetMapping("/{eventId}")
+    public EtkinlikDetayDto getEtkinlik(@PathVariable Long eventId){
+        return landingService.getEtkinlik(eventId)//sadece seansList ve bu seansların salonu dönsün
+    }
+
+    @GetMapping//seansın koltuk durumu
 }

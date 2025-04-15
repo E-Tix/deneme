@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
-import com.example.demo.Dto.OrgSignUpDto;
-import com.example.demo.Dto.SignUpDto;
+import com.example.demo.Dto.Request.OrgSignUpDto;
+import com.example.demo.Dto.Request.SignUpDto;
 import com.example.demo.Entity.KullaniciEntity;
 import com.example.demo.Entity.OrganizatorEntity;
 import com.example.demo.Repository.KullaniciRepository;

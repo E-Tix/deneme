@@ -1,7 +1,7 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Dto.LoginDto;
-import com.example.demo.Dto.OrgLoginDto;
+import com.example.demo.Dto.Request.LoginDto;
+import com.example.demo.Dto.Request.OrgLoginDto;
 import com.example.demo.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

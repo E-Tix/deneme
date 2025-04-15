@@ -1,6 +1,6 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Dto.ChangePasswordDto;
+import com.example.demo.Dto.Request.ChangePasswordDto;
 import com.example.demo.Dto.KullaniciProfiliDto;
 import com.example.demo.Entity.BiletEntity;
 import com.example.demo.Service.KullaniciService;
@@ -51,7 +51,7 @@ public class KullaniciController {
     }
 
     @PutMapping("/updateUserInfo")
-    public boolean kullaniciProfiliDuzenle(KullaniciProfiliDto kullaniciProfiliDto)
+    public boolean kullaniciProfiliDuzenle(@RequestBody KullaniciProfiliDto kullaniciProfiliDto)
     {
         //id changePassword ile aynı şekilde alınmalı.
         Long id= Long.valueOf(1);

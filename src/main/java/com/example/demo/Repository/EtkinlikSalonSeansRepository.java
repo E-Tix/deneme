@@ -3,6 +3,7 @@ package com.example.demo.Repository;
 import com.example.demo.Entity.EtkinlikEntity;
 import com.example.demo.Entity.EtkinlikSalonSeansEntity;
 import com.example.demo.Entity.SalonEntity;
+import com.example.demo.Entity.SeansEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -16,6 +17,8 @@ public interface EtkinlikSalonSeansRepository extends JpaRepository<EtkinlikSalo
     WHERE ess.etkinlik.etkinlikID = :etkinlikId
     """)
     List<SalonEntity> findSalonlarByEtkinlik(@Param("etkinlikId") Long etkinlikId);
+
+    List<EtkinlikSalonSeansEntity> findEtkinlikSalonSeansEntitiesByEtkinlik(EtkinlikEntity etkinlik);
 
     @Query("""
     SELECT DISTINCT ess.etkinlik FROM EtkinlikSalonSeansEntity ess

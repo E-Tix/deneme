@@ -1,5 +1,6 @@
 package com.example.demo.Entity;
 
+import com.example.demo.Dto.Request.SeansEkleDto;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -14,8 +15,8 @@ public class EtkinlikEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long etkinlikID;
 //tamam
-    @OneToMany(mappedBy = "etkinlik")
-    private List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList;
+    //@OneToMany(mappedBy = "etkinlik")
+    //private List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList;
 
     @ManyToOne
     OrganizatorEntity organizator;
@@ -63,6 +64,19 @@ public class EtkinlikEntity {
         this.etkinlikSuresi = etkinlikSuresi;
         this.olusturulmaTarihi = olusturulmaTarihi;
         this.tarihiGectiMi = tarihiGectiMi;
+        this.biletFiyati = biletFiyati;
+    }
+
+    //EtkinlikEkleDto için
+    public EtkinlikEntity(OrganizatorEntity organizator,EtkinlikTurEntity etkinlikTur, SehirEntity sehir, String etkinlikAdi, String kapakFotografi, String etkinlikAciklamasi, int yasSiniri, Timestamp etkinlikSuresi, float biletFiyati) {
+        this.organizator=organizator;
+        this.etkinlikTur = etkinlikTur;
+        this.sehir = sehir;
+        this.etkinlikAdi = etkinlikAdi;
+        this.kapakFotografi = kapakFotografi;
+        this.etkinlikAciklamasi = etkinlikAciklamasi;
+        this.yasSiniri = yasSiniri;
+        this.etkinlikSuresi = etkinlikSuresi;
         this.biletFiyati = biletFiyati;
     }
 
@@ -163,4 +177,12 @@ public class EtkinlikEntity {
     public void setBiletFiyati(float biletFiyati) {
         this.biletFiyati = biletFiyati;
     }
+
+    //public List<EtkinlikSalonSeansEntity> getEtkinlikSalonSeansEntityList() {
+       // return etkinlikSalonSeansEntityList;
+    //}
+
+    //public void setEtkinlikSalonSeansEntityList(List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList) {
+        //this.etkinlikSalonSeansEntityList = etkinlikSalonSeansEntityList;
+    //}
 }

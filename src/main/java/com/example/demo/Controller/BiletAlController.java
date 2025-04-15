@@ -1,6 +1,6 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Dto.BiletAlDto;
+import com.example.demo.Dto.Request.BiletAlDto;
 import com.example.demo.Service.BiletAlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

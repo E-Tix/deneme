@@ -1,7 +1,7 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Dto.OrgSignUpDto;
-import com.example.demo.Dto.SignUpDto;
+import com.example.demo.Dto.Request.OrgSignUpDto;
+import com.example.demo.Dto.Request.SignUpDto;
 import com.example.demo.Service.SignUpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

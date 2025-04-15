@@ -5,7 +5,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name="Seans")
@@ -17,11 +16,11 @@ public class SeansEntity{
     private Long seansID;
 
     //@OneToOne(mappedBy = "")
-    @OneToMany(mappedBy = "seans")
-    private List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList;
+    //@OneToMany(mappedBy = "seans")
+    //private List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList;
 
-    @OneToMany(mappedBy = "seans")
-    private List<SeansKoltukBiletEntity> seansKoltukBiletEntityList;
+    //@OneToMany(mappedBy = "seans")
+    //private List<SeansKoltukBiletEntity> seansKoltukBiletEntityList;
 
     @Column(name = "tarih")
     private Timestamp tarih;
@@ -40,10 +39,14 @@ public class SeansEntity{
 
     }
 
-    public SeansEntity(Long seansID, List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList, List<SeansKoltukBiletEntity> seansKoltukBiletEntityList, Timestamp tarih, Timestamp bitisTarih, boolean tarihiGectiMi, Timestamp olusturulmaTarihi) {
+    public SeansEntity(Timestamp tarih) {
+        this.tarih = tarih;
+    }
+
+    public SeansEntity(Long seansID,/* List<EtkinlikSalonSeansEntity> etkinlikSalonSeansEntityList, List<SeansKoltukBiletEntity> seansKoltukBiletEntityList,*/ Timestamp tarih, Timestamp bitisTarih, boolean tarihiGectiMi, Timestamp olusturulmaTarihi) {
         this.seansID = seansID;
-        this.etkinlikSalonSeansEntityList = etkinlikSalonSeansEntityList;
-        this.seansKoltukBiletEntityList = seansKoltukBiletEntityList;
+        //this.etkinlikSalonSeansEntityList = etkinlikSalonSeansEntityList;
+        //this.seansKoltukBiletEntityList = seansKoltukBiletEntityList;
         this.tarih = tarih;
         this.bitisTarih = bitisTarih;
         this.tarihiGectiMi = tarihiGectiMi;
@@ -90,7 +93,7 @@ public class SeansEntity{
         this.olusturulmaTarihi = olusturulmaTarihi;
     }
 
-    public List<EtkinlikSalonSeansEntity> getEtkinlikSalonSeansEntityList() {
+    /*public List<EtkinlikSalonSeansEntity> getEtkinlikSalonSeansEntityList() {
         return etkinlikSalonSeansEntityList;
     }
 
@@ -104,5 +107,5 @@ public class SeansEntity{
 
     public void setSeansKoltukBiletEntityList(List<SeansKoltukBiletEntity> seansKoltukBiletEntityList) {
         this.seansKoltukBiletEntityList = seansKoltukBiletEntityList;
-    }
+    }*/
 }

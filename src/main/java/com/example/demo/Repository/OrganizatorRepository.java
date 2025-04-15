@@ -8,7 +8,7 @@ import java.util.Optional;
 @Repository
 public interface OrganizatorRepository extends JpaRepository<OrganizatorEntity,Long> {
     OrganizatorEntity findByEmailAndSifre(String email,String sifre);
-    Optional<OrganizatorEntity> findByOrganizatorID(Long organizatorID);
+    OrganizatorEntity findByOrganizatorID(Long organizatorID);
     Optional<OrganizatorEntity> findByAdSoyad(String adSoyad);
     OrganizatorEntity findByEmail(String email);//tek bir org döndürmesi lazım
     Optional<OrganizatorEntity> findBySifre(String sifre);
