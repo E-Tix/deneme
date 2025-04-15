@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 
+import java.util.Optional;
+
 @Service
 public class LoginService {
     private KullaniciRepository kullaniciRepository;
@@ -39,12 +41,17 @@ public class LoginService {
 
 
     public String login(OrgLoginDto orgLoginDto) {
-        OrganizatorEntity organizator = organizatorRepository.findByEmail(orgLoginDto.getEmail());
+        Optional<OrganizatorEntity> optionalOrganizator = organizatorRepository.findByEmail(orgLoginDto.getEmail());
 
-        if (organizator != null && passwordEncoder.matches(orgLoginDto.getSifre(), organizator.getSifre())) {
-            return jwtService.generateToken(organizator);
-        } else {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Organizatör girişi başarısız");
+        if (optionalOrganizator.isPresent()) {
+            OrganizatorEntity organizator = optionalOrganizator.get();
+
+            if (passwordEncoder.matches(orgLoginDto.getSifre(), organizator.getSifre())) {
+                return jwtService.generateToken(organizator);
+            }
         }
+
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Organizatör girişi başarısız");
     }
+
 }
