@@ -28,23 +28,29 @@ public class BiletAlService {
         this.seansRepository = seansRepository;
         this.koltukRepository = koltukRepository;
     }
-
     @Transactional
-    public boolean biletAl(BiletAlDto biletAlDto){
+    public boolean biletAl(BiletAlDto biletAlDto, Long kullaniciId) {
 
-        //null kontrolü yap
-        BiletEntity bilet = biletRepository.save(new BiletEntity(biletAlDto.isOdendiMi(),biletAlDto.getOdenenMiktar()));
-        KullaniciEntity kullanici = kullaniciRepository.findByKullaniciID(biletAlDto.getKullaniciId());
+        BiletEntity bilet = biletRepository.save(
+                new BiletEntity(biletAlDto.isOdendiMi(), biletAlDto.getOdenenMiktar())
+        );
 
-        kullaniciBiletRepository.save(new KullaniciBiletEntity(kullanici,bilet));
+        // DTO içinden ID almak yerine parametreyi kullan
+        KullaniciEntity kullanici = kullaniciRepository.findById(kullaniciId)
+                .orElseThrow(() -> new RuntimeException("Kullanıcı bulunamadı"));
+
+        kullaniciBiletRepository.save(new KullaniciBiletEntity(kullanici, bilet));
 
         SeansEntity seans = seansRepository.findBySeansID(biletAlDto.getSeansId());
         KoltukEntity koltuk = koltukRepository.findByKoltukID(biletAlDto.getKoltukId());
 
-        seansKoltukBiletRepository.save(new SeansKoltukBiletEntity(seans,koltuk,bilet,"Satın Alınmış"));
+        seansKoltukBiletRepository.save(
+                new SeansKoltukBiletEntity(seans, koltuk, bilet, "Satın Alınmış")
+        );
 
-        satinAlService.satinAl();//transactionaldan dolayı sorun çıkabilir.
+        satinAlService.satinAl();
 
         return true;
     }
+
 }
