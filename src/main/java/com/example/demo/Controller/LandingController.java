@@ -30,7 +30,7 @@ public class LandingController {
 
     @GetMapping("/{eventId}")
     public EtkinlikDetayDto getEtkinlik(@PathVariable Long eventId){
-        return landingService.getEtkinlik(eventId)//sadece seansList ve bu seansların salonu dönsün
+        return landingService.getEtkinlik(eventId);//sadece seansList ve bu seansların salonu dönsün
     }
 
     @GetMapping//seansın koltuk durumu

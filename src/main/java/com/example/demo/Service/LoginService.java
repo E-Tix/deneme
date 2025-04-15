@@ -16,26 +16,27 @@ import org.springframework.http.HttpStatus;
 public class LoginService {
     private KullaniciRepository kullaniciRepository;
     private OrganizatorRepository organizatorRepository;
-    private JWTService jwtService;
+    private JwtService jwtService;
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public LoginService(KullaniciRepository kullaniciRepository, OrganizatorRepository organizatorRepository, JWTService jwtService, BCryptPasswordEncoder passwordEncoder) {
+    public LoginService(KullaniciRepository kullaniciRepository, OrganizatorRepository organizatorRepository, JwtService jwtService, BCryptPasswordEncoder passwordEncoder) {
         this.kullaniciRepository = kullaniciRepository;
         this.organizatorRepository = organizatorRepository;
         this.jwtService = jwtService;
         this.passwordEncoder = passwordEncoder;
     }
-
     public String login(LoginDto loginDto) {
-        KullaniciEntity kullanici = kullaniciRepository.findByKullaniciAdi(loginDto.getKullaniciAdi());
+        KullaniciEntity kullanici = kullaniciRepository.findByKullaniciAdi(loginDto.getKullaniciAdi())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Kullanıcı bulunamadı"));
 
-        if (kullanici != null && passwordEncoder.matches(loginDto.getSifre(), kullanici.getSifre())) {
+        if (passwordEncoder.matches(loginDto.getSifre(), kullanici.getSifre())) {
             return jwtService.generateToken(kullanici);
-        } else {
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Kullanıcı girişi başarısız");
         }
+
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Şifre yanlış");
     }
+
 
     public String login(OrgLoginDto orgLoginDto) {
         OrganizatorEntity organizator = organizatorRepository.findByEmail(orgLoginDto.getEmail());

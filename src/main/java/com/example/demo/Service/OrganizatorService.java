@@ -35,6 +35,10 @@ public class OrganizatorService {
         }
     }
 
+    public Long findOrganizatorIDByUsername(String username){
+        return organizatorRepository.findOrganizatorIDByUsername(username);
+    }
+
     public boolean changePassword(ChangePasswordDto changePasswordDto,Long id)
     {
         OrganizatorEntity organizator=organizatorRepository.findByOrganizatorID(id);

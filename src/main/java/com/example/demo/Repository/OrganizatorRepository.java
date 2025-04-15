@@ -12,5 +12,5 @@ public interface OrganizatorRepository extends JpaRepository<OrganizatorEntity,L
     Optional<OrganizatorEntity> findByAdSoyad(String adSoyad);
     OrganizatorEntity findByEmail(String email);//tek bir org döndürmesi lazım
     Optional<OrganizatorEntity> findBySifre(String sifre);
-
+    Long findOrganizatorIDByUsername(String username);
 }
