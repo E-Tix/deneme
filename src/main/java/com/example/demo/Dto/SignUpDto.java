@@ -1,12 +1,28 @@
 package com.example.demo.Dto;
 
-public class SignUpDto {
-    private String adSoyad;
-    private String kullaniciAdi;
-    private String sifre;
-    private String email;
-    private String telNo;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
+public class SignUpDto {
+
+    @NotEmpty(message = "Ad soyad boş olamaz")
+    private String adSoyad;
+
+    @NotEmpty(message = "Kullanıcı adı boş olamaz")
+    @Size(min = 3, max = 50, message = "Kullanıcı adı 3 ile 50 karakter arasında olmalı")
+    private String kullaniciAdi;
+
+    @NotEmpty(message = "Şifre boş olamaz")
+    @Size(min = 6, message = "Şifre en az 6 karakter olmalı")
+    private String sifre;
+
+    @NotEmpty(message = "Email boş olamaz")
+    @Email(message = "Geçerli bir email adresi giriniz")
+    private String email;
+
+    @NotEmpty(message = "Telefon numarası boş olamaz")
+    private String telNo;
 
     public SignUpDto(String adSoyad, String kullaniciAdi, String sifre, String email, String telNo) {
         this.adSoyad = adSoyad;
@@ -16,8 +32,7 @@ public class SignUpDto {
         this.telNo = telNo;
     }
 
-    public SignUpDto() {
-    }
+    public SignUpDto() {}
 
     public String getAdSoyad() {
         return adSoyad;

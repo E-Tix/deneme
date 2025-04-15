@@ -13,4 +13,5 @@ public interface KullaniciRepository extends JpaRepository<KullaniciEntity,Long>
     Optional<KullaniciEntity>findBySehir(SehirEntity sehir);
     KullaniciEntity findByKullaniciAdiAndSifre(String kullaniciAdi,String sifre);
     Optional<KullaniciEntity>findByEmail(String email);
+    KullaniciEntity findByKullaniciAdi(String kullaniciAdi);
 }
