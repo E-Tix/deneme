@@ -11,6 +11,7 @@ public class EtkinlikGuncelleDto {
 
     private Long etkinlikId;
     private List<SeansDuzenleDto> seansDuzenleDtoList;
+    private List<SeansEkleDto> seansEkleDtoList;
     private EtkinlikTurEntity etkinlikTur;
     private SalonEntity salon;
     private SehirEntity sehir;
@@ -35,7 +36,30 @@ public class EtkinlikGuncelleDto {
         this.biletFiyati = biletFiyati;
     }
 
+    public EtkinlikGuncelleDto(Long etkinlikId, List<SeansDuzenleDto> seansDuzenleDtoList, List<SeansEkleDto> seansEkleDtoList, EtkinlikTurEntity etkinlikTur, SalonEntity salon, SehirEntity sehir, String etkinlikAdi, String kapakFotografi, String etkinlikAciklamasi, int yasSiniri, Timestamp etkinlikSuresi, float biletFiyati) {
+        this.etkinlikId = etkinlikId;
+        this.seansDuzenleDtoList = seansDuzenleDtoList;
+        this.seansEkleDtoList = seansEkleDtoList;
+        this.etkinlikTur = etkinlikTur;
+        this.salon = salon;
+        this.sehir = sehir;
+        this.etkinlikAdi = etkinlikAdi;
+        this.kapakFotografi = kapakFotografi;
+        this.etkinlikAciklamasi = etkinlikAciklamasi;
+        this.yasSiniri = yasSiniri;
+        this.etkinlikSuresi = etkinlikSuresi;
+        this.biletFiyati = biletFiyati;
+    }
+
     public EtkinlikGuncelleDto() {
+    }
+
+    public List<SeansEkleDto> getSeansEkleDtoList() {
+        return seansEkleDtoList;
+    }
+
+    public void setSeansEkleDtoList(List<SeansEkleDto> seansEkleDtoList) {
+        this.seansEkleDtoList = seansEkleDtoList;
     }
 
     public SalonEntity getSalon() {

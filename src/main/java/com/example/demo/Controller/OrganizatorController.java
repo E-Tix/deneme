@@ -26,23 +26,29 @@ public class OrganizatorController {
 
     @PostMapping("/ChangePassword")
     public boolean changePassword(@RequestBody ChangePasswordDto changePasswordDto) {
-        Long id = getCurrentUserId();
+        Long id = getCurrentOrganizatorId();
         return organizatorService.changePassword(changePasswordDto, id);
     }
 
     @GetMapping("/getOrganizatorProfile")
     public OrganizatorProfiliDto getOrganizatorProfili() {
-        Long id = getCurrentUserId();
+        Long id = getCurrentOrganizatorId();
         return organizatorService.getOrganizatorProfili(id);
     }
 
-    @PutMapping("/updateOrganizatorInfo")
+    @GetMapping("/updateOrganizatorInfo")
+    public OrganizatorProfiliDuzenleDto getOrganizatorProfiliDuzenleDto(){
+        Long id= getCurrentOrganizatorId();
+        return organizatorService.getOrganizatorProfiliDto(id);
+    }
+
+    @PutMapping("/updateOrganizatorInfo/save")
     public boolean organizatorProfiliDuzenle(@RequestBody OrganizatorProfiliDuzenleDto organizatorProfiliDuzenleDto) {
-        Long id = getCurrentUserId();
+        Long id = getCurrentOrganizatorId();
         return organizatorService.organizatorProfiliDuzenle(organizatorProfiliDuzenleDto, id);
     }
 
-    private Long getCurrentUserId() {
+    private Long getCurrentOrganizatorId() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         if (auth == null || !auth.isAuthenticated()) {

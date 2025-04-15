@@ -33,8 +33,8 @@ public class LandingController {
         return landingService.getEtkinlik(eventId); // sadece seansList ve bu seansların salonu dönsün
     }
 
-    @GetMapping("/koltukDurumu/{seansId}")
+    /*@GetMapping("/koltukDurumu/{seansId}")
     public List<KoltukDurumDto> getKoltukDurumu(@PathVariable Long seansId) {
         return landingService.getKoltukDurumu(seansId);
-    }
+    }*/
 }

@@ -70,7 +70,7 @@ public class LandingService {
         }
     }
 
-    public List<KoltukDurumDto> getKoltukDurumu(Long seansId) {
+    /*public List<KoltukDurumDto> getKoltukDurumu(Long seansId) {
         // Seansa ait koltukları al
         EtkinlikSalonSeansEntity seans = etkinlikSalonSeansRepository.findById(seansId).orElse(null);
 
@@ -85,6 +85,6 @@ public class LandingService {
         return koltuklar.stream()
                 .map(koltuk -> new KoltukDurumDto(koltuk.getKoltukID(), koltuk.getKoltukNumarasi(), koltuk.isDolu()))
                 .collect(Collectors.toList());
-    }
+    }*/
 
 }

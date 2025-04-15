@@ -24,7 +24,6 @@ public class KullaniciController {
     @PostMapping("/ChangePassword")
     public boolean changePassword(@RequestBody ChangePasswordDto changePasswordDto) {
 
-        // ❗ Gerçek kullanıcı ID'si Spring Security context'ten alınmalı
         Long userId = getCurrentUserId();
         return kullaniciService.changePassword(changePasswordDto, userId);
     }
@@ -32,7 +31,6 @@ public class KullaniciController {
     @GetMapping("/getTickets")
     public List<BiletEntity> getBiletler() {
 
-        // ❗ Gerçek kullanıcı ID'si alınmalı
         Long userId = getCurrentUserId();
         return kullaniciService.getBiletler(userId);
     }
@@ -40,7 +38,6 @@ public class KullaniciController {
     @GetMapping("/getUserProfile")
     public KullaniciProfiliDto getKullaniciProfili() {
 
-        // ❗ Gerçek kullanıcı ID'si alınmalı
         Long userId = getCurrentUserId();
         return kullaniciService.getKullaniciProfili(userId);
     }
@@ -48,12 +45,10 @@ public class KullaniciController {
     @PutMapping("/updateUserInfo")
     public boolean kullaniciProfiliDuzenle(@RequestBody KullaniciProfiliDto kullaniciProfiliDto) {
 
-        // ❗ Gerçek kullanıcı ID'si alınmalı
         Long userId = getCurrentUserId();
         return kullaniciService.kullaniciProfiliDuzenle(kullaniciProfiliDto, userId);
     }
 
-    // ✅ Kullanıcının kimliğini almak için yardımcı metod
     private Long getCurrentUserId() {
         // Bu metodu JWT'den ya da SecurityContext'ten ID çıkarmak için ayarlamalısın
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

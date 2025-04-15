@@ -14,5 +14,5 @@ public interface KullaniciRepository extends JpaRepository<KullaniciEntity,Long>
     KullaniciEntity findByKullaniciAdiAndSifre(String kullaniciAdi,String sifre);
     Optional<KullaniciEntity>findByEmail(String email);
     Optional<KullaniciEntity> findByKullaniciAdi(String kullaniciAdi);
-    Long getUserIdByUsername(String username);
+    Long getUserIdByKullaniciAdi(String username);
 }

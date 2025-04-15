@@ -21,5 +21,5 @@ public interface KoltukRepository extends JpaRepository<KoltukEntity, Long> {
 
     //Belli bir salondaki bütün koltukları bulmak için
     Optional<List<KoltukEntity>> findBySalon(SalonEntity salon);
-    List<KoltukEntity> findBySeans(EtkinlikSalonSeansEntity seans);
+    //List<KoltukEntity> findBySeans(EtkinlikSalonSeansEntity seans);
 }

@@ -19,6 +19,16 @@ public class OrganizatorService {
         this.organizatorRepository=organizatorRepository;
     }
 
+    public OrganizatorProfiliDuzenleDto getOrganizatorProfiliDto(Long id)
+    {
+        OrganizatorEntity organizator=organizatorRepository.findByOrganizatorID(id);
+        if (organizator==null){
+            throw new EntityNotFoundException("organizator bulunamadı");
+        }else {
+            return new OrganizatorProfiliDuzenleDto(organizator.getAdSoyad(), organizator.getEmail(), organizator.getIban(), organizator.getSirketAdresi(), organizator.getTelefonNumarasi());
+        }
+    }
+
     public boolean organizatorProfiliDuzenle(OrganizatorProfiliDuzenleDto organizatorProfiliDuzenleDto,Long id)
     {
         OrganizatorEntity organizator = organizatorRepository.findByOrganizatorID(id);
@@ -27,16 +37,17 @@ public class OrganizatorService {
         }else {
             organizator.setAdSoyad(organizatorProfiliDuzenleDto.getAdSoyad());
             organizator.setEmail(organizatorProfiliDuzenleDto.getEmail());
-            organizator.setIban(organizator.getIban());
+            organizator.setIban(organizatorProfiliDuzenleDto.getIban());
             organizator.setSirketAdresi(organizatorProfiliDuzenleDto.getSirketAdresi());
             organizator.setTelefonNumarasi(organizatorProfiliDuzenleDto.getTelefonNumarasi());
 
+            organizatorRepository.save(organizator);
             return true;
         }
     }
 
     public Long findOrganizatorIDByUsername(String username){
-        return organizatorRepository.findOrganizatorIDByUsername(username);
+        return organizatorRepository.findOrganizatorIDByEmail(username);
     }
 
     public boolean changePassword(ChangePasswordDto changePasswordDto,Long id)

@@ -67,7 +67,7 @@ public class KullaniciService {
         return new KullaniciProfiliDto(kullanici.getAdSoyad(), kullanici.getEmail(), kullanici.getSehir(), kullanici.getTelNo());
     }
     public long getUserIdByUsername(String username){
-        return kullaniciRepository.getUserIdByUsername(username);
+        return kullaniciRepository.getUserIdByKullaniciAdi(username);
     }
     public boolean kullaniciProfiliDuzenle(KullaniciProfiliDto kullaniciProfiliDto,Long id)
     {
