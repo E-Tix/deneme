@@ -21,7 +21,7 @@ public class BiletAlController {
         this.kullaniciRepository = kullaniciRepository;
     }
 
-    @PostMapping("/")
+    @PostMapping
     public boolean biletAl(@RequestBody BiletAlDto biletAlDto) {
         Long userId = getCurrentUserId();
         return biletAlService.biletAl(biletAlDto, userId);

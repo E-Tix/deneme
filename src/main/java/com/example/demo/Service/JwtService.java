@@ -17,11 +17,12 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    @Value("6a54s1f351as51d65a4sd351a35s1d654a65s54d51as51d654as51d3a1s5d165a4s5d1a1")
+    @Value("${security.jwt.secret-key}")
     private String secretKey;
 
-    @Value("360000")
+    @Value("${security.jwt.expiration-time}")
     private long jwtExpiration;
+
 
     public String generateToken(KullaniciEntity kullanici) {
         return generateTokenWithClaims(kullanici.getKullaniciAdi(), "USER");
